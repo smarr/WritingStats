@@ -40,7 +40,7 @@ Example
     Pages/Day: 1.88
     Current Date: Friday, 13. July 2012 18:50:43
 
- ![Progress and Speed Plots](example-book.jpg "Progress and Speed Plots")
+ ![Progress and Speed Plots](https://github.com/smarr/WritingStats/raw/master/example-book.jpg "Progress and Speed Plots")
 
 Setup
 -----
