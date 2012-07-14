@@ -2,6 +2,10 @@
 error_reporting(E_ALL | E_STRICT);
 
 function get_graph_data() {
+  global $start_day;
+  global $duration;
+  global $target_page_number_body;
+  global $target_word_count;
 
 // Config
 
@@ -16,6 +20,7 @@ $byDate  = array(); // dictionary by date
 // initialize arrays
 $wordDiff = array(); $pageDiff = array();
 $words    = array(); $pages    = array();
+$commits  = array();
 for ($i = 0; $i < $duration; $i++) {
   $words[$i] = 0;
   $pages[$i] = 0;
