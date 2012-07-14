@@ -1,0 +1,12 @@
+#!/bin/sh
+# update directory
+cur=`hostname`
+soft="soft.vub.ac.be"
+
+if [ "$cur" = "$soft" ]
+then
+  GIT_WORK_TREE=checkout git reset --hard
+  cd checkout
+  make pdf
+  status/status.php
+fi

@@ -85,6 +85,10 @@ Note, this will require that the server is able to generate the PDF file using
 make and LateX-Mk. Furthermore, it will require a installation or local copy
 of TeXcount.
 
+To make sure that the post-receive script only executes the code on the
+desired server, we do check the hostname of the machine. Please adapt it for
+your deployment!
+
 To set up a shared git repository with a post-receive hook, execute the
 following steps:
 
