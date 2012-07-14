@@ -58,6 +58,18 @@ WritingStats depends on the following software:
  - Google Chart Tools (no installation required, uses online copy)  
    https://developers.google.com/chart/
 
+To use WritingStats, clone this repository as template for your new LaTeX 
+project.
+
+    git clone https://github.com/smarr/WritingStats.git
+
+Alternatively, check out the repository and copy the following files to your
+existing LaTeX project:
+
+    cp    Makefile     $YOURFOLDER/
+    cp    status.conf  $YOURFOLDER/
+    cp -R status       $YOURFOLDER/
+
 ### Customize Settings
 
 As you have seen in the example above, WritingStats uses a defined goal to
