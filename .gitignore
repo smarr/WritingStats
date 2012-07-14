@@ -5,3 +5,13 @@
 *.synctex.gz
 *.pdf
 *.toc
+*.idx.old
+*.ilg
+*.ind
+*.ind.old
+
+# Statistic Data
+status/status.data
+status/status.html
+status/status.items
+status/status.txt
