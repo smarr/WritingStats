@@ -58,6 +58,40 @@ WritingStats depends on the following software:
  - Google Chart Tools (no installation required, uses online copy)  
    https://developers.google.com/chart/
 
+### Customize Settings
+
+As you have seen in the example above, WritingStats uses a defined goal to
+estimate your progress. The goal and other settings are defined in
+`status.conf`. You will have to set the file name for your main tex file, and
+the name of the log-file LaTeX produces. The log file has typically the same
+name but uses the .log-extension.
+
+To achieve accurate results, you will need to estimate the number of words per
+page, and how many additional pages the final PDF will contain. Often, you
+will want to ignore for instance the table of content, lists of figures and
+tables, appendices, etc. Since, we currently do not have a way to detect them
+automatically, they will need to be configured instead.
+
+The settings for start date and deadline are necessary to calculate the length
+of the project, the number of days left, and to size the charts properly.
+
+Note that the RSS feed needs to be modified separately (cf. below).
+
+### Server Repository
+
+After customizing `status.conf`, we suggest to set up a shared repository on a
+server to automatically generate the statistics on every push to the server.
+Note, this will require that the server is able to generate the PDF file using
+make and LateX-Mk. Furthermore, it will require a installation or local copy
+of TeXcount.
+
+To set up a shared git repository with a post-receive hook, execute the
+following steps:
+
+    git init --bare
+    git clone --local `pwd` checkout
+    ln -s `pwd`/checkout/status/post-receive hooks/post-receive
+
 ### RSS Feed
 
 The RSS feed can be published using the `status/status.rss.php` file. It needs
