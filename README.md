@@ -8,21 +8,55 @@ plot of the daily speed of change.
 Currently, this project provides a setup for a standard LaTeX environment in
 combination with git version tracking.
 
+Features
+--------
+
+ - determine page and word count, generate statistics based on them
+ - generate RSS feed with the latest data
+ - generate graphs to visualize progress
+
 Example
 -------
+
+    Goal
+    ----
+
+    Words: 52500
+    Pages: 150
+    Words/Page: ca. 350
+    Draft Deadline: 1 September 2012
+
+    Current Status
+    --------------
+
+    Words: 29367
+    Pages: 119
+    Words to be written: 23133
+    Pages to be written: ca. 49
+    Progress: 55.94% finished
+    Remaining Days: 49.21
+    Remaining Workdays: 35.15
+    Remaining Words/Workday: 658
+    Pages/Day: 1.88
+    Current Date: Friday, 13. July 2012 18:50:43
+
+ ![Progress and Speed Plots](example-book.jpg "Progress and Speed Plots")
 
 Setup
 -----
 
 WritingStats depends on the following software:
 
- - PHP, command-line interpreter (any version should do)
+ - PHP, command-line interpreter (any recent version should do)
  
- - LaTeX-Mk, for the Makefile used in the git post-receive hook
+ - LaTeX-Mk, for the Makefile used in the git post-receive hook  
    http://latex-mk.sourceforge.net/
    
- - TeXcount, for the word count, tested with version 3.0
+ - TeXcount, for the word count, tested with version 3.0  
    http://app.uio.no/ifi/texcount/
+
+ - Google Chart Tools (no installation required, uses online copy)  
+   https://developers.google.com/chart/
 
 ### RSS Feed
 
