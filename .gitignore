@@ -1,0 +1,7 @@
+# LaTeX specific
+*.aux
+*.idx
+*.log
+*.synctex.gz
+*.pdf
+*.toc
