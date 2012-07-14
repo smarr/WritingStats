@@ -59,10 +59,10 @@ foreach ($byDate as $date => $value) {
   $words[$curDay] = $value[0];
   $pages[$curDay] = $value[1];
   while ($last_day < $curDay) {
-  if ($words[$last_day] === 0) {
-    $words[$last_day] = $words[$last_day - 1];
-    $pages[$last_day] = $pages[$last_day - 1];
-  }
+    if ($words[$last_day] === 0 && $last_day > 0) {
+      $words[$last_day] = $words[$last_day - 1];
+      $pages[$last_day] = $pages[$last_day - 1];
+    }
   $last_day++;
   }
 }
