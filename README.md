@@ -92,9 +92,17 @@ your deployment!
 To set up a shared git repository with a post-receive hook, execute the
 following steps:
 
-    git init --bare
-    git clone --local `pwd` checkout
-    ln -s `pwd`/checkout/status/post-receive hooks/post-receive
+ 1. Create bare repository on remote server:  
+    `git init --bare`
+ 
+ 2. Push to the newly create remote repository.
+ 
+ 3. Checkout a working copy on the remote server:  
+    `mkdir checkout`  
+    `GIT_WORK_TREE=checkout git reset --hard`
+ 
+ 4. Create a symlink to the post-receive hook:  
+    ``ln -s `pwd`/checkout/status/post-receive hooks/post-receive``
 
 ### RSS Feed
 
