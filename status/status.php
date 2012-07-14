@@ -18,7 +18,6 @@ $texcount  = "";
 $texcount_bin = determine_texcount_bin();
 
 $texcount = shell_exec("$texcount_bin -merge $mainfile");
-$texcount = file_get_contents('count.tmp');
 
 // process data
 $matches = array();
@@ -65,7 +64,7 @@ $result .= 'Pages to be written: ca. '.$pagesLeft."\n";
 $result .= 'Progress: '.$progress."% finished\n";
 $result .= 'Remaining Days: '.$timeLeft."\n";
 $result .= 'Remaining Workdays: '.$timeLeftUseableDays."\n";
-$result .= 'Remaining Words/Day: '.$leftWordsPerDay."\n";
+$result .= 'Remaining Words/Workday: '.$leftWordsPerDay."\n";
 $result .= 'Pages/Day: '.$pagesPerDay."\n";
 $result .= 'Current Date: ';
 // Little bit other Syntax but better effect
