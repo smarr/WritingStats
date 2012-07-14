@@ -121,10 +121,10 @@ The foundation of this project was already laid out when I wrote my master
 thesis. To track my own progress, I wrote the initial version of these
 scripts. However, back then, I was happily using Word and it's XML-based docx
 file format. To be able to count words automatically, I used the
-`docx2html.xsl` XSLT transformation, which also generated reasonably good HTML
-from the Word files. The scripts are currently not adapted to use it, and
-thus, Word is not supported anymore. However, pull requests to reintegrate it
-are of course welcome.
+`status/docx2html.xsl` XSLT transformation, which also generated reasonably
+good HTML from the Word files. The scripts are currently not adapted to use
+it, and thus, Word is not supported anymore. However, pull requests to
+reintegrate it are of course welcome.
 
 License
 -------
