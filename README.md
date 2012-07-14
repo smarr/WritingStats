@@ -24,6 +24,16 @@ WritingStats depends on the following software:
  - TeXcount, for the word count, tested with version 3.0
    http://app.uio.no/ifi/texcount/
 
+### RSS Feed
+
+The RSS feed can be published using the `status/status.rss.php` file. It needs
+to be adapted to reflect the project properly. The RSS feed has a title,
+description, language, and so on. Furthermore, it contains the URLs it
+corresponds to. After adapting the file, a typical deployment will use a
+symlink to expose the script in a public web server directory. Note, the
+script accesses the `status/status.items` file that is automatically generated
+as part of the post-receive hook.
+
 History
 -------
 
