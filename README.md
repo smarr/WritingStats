@@ -14,6 +14,16 @@ Example
 Setup
 -----
 
+WritingStats depends on the following software:
+
+ - PHP, command-line interpreter (any version should do)
+ 
+ - LaTeX-Mk, for the Makefile used in the git post-receive hook
+   http://latex-mk.sourceforge.net/
+   
+ - TeXcount, for the word count, tested with version 3.0
+   http://app.uio.no/ifi/texcount/
+
 History
 -------
 
