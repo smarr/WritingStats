@@ -17,6 +17,11 @@ $latex_log = file_get_contents($logfile);
 $texcount  = "";
 $texcount_bin = determine_texcount_bin();
 
+if (!file_exists($texcount_bin)) {
+  die('texcount binary not found. Please check status.conf and make sure it is installed. See: http://app.uio.no/ifi/texcount/download.html');
+}
+  
+
 $texcount = shell_exec("$texcount_bin -merge $mainfile");
 
 // process data
