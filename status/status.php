@@ -85,11 +85,18 @@ $graphs = get_graph_data();
 
 
 
+$version_count = substr_count($graph_data, "\n");
+include($folder.'/png.php');
 
+$overview_images = "<div id='images' style='width: 900px;'>\n";
 
 file_put_contents($folder.'/status.txt', $result);
 
 
+for ($i = 1; $i <= $version_count; $i++) {
+  $overview_images .= "<img src='overview-$i.png' style='display:none;width:100%;height:auto;' />\n";
+}
+$overview_images .= "</div>\n";
 
 $rss = "
     <item>
@@ -110,6 +117,11 @@ $full_html = '<html><head><title>Latest Stats on PhD Writing Progress</title>
   <script type="text/javascript">
 	      google.load("visualization", "1", {packages:["corechart"]});
 	      google.setOnLoadCallback(drawChart);
+        
+        var image_nodes = null;
+        var img_idx = 0;
+        var play = true;
+        
 	      function drawChart() {
 	        var progress_data = google.visualization.arrayToDataTable('.$graphs['progress'].');
 	        var speed_data    = google.visualization.arrayToDataTable('.$graphs['speed'].');
@@ -127,8 +139,8 @@ $full_html = '<html><head><title>Latest Stats on PhD Writing Progress</title>
 				       0: {targetAxisIndex: 0},
 					   1: {targetAxisIndex: 1},
 					   2: {targetAxisIndex: 0, color: "#ccc"},
-			  },
-	        };
+			     },
+	    };
 			
 			var speed_options = {
 	          title: "Speed",
@@ -150,19 +162,60 @@ $full_html = '<html><head><title>Latest Stats on PhD Writing Progress</title>
 	        progress_chart.draw(progress_data, progress_options);
 	        var speed_chart = new google.visualization.LineChart(document.getElementById("speed"));
 	        speed_chart.draw(speed_data, speed_options);
-	      }
+          
+          
+          startImageTime();
+          image_nodes = document.getElementById("images").children;
+	      };
+        
+        function startImageTime() {
+          setInterval(displayNextImage, 250);
+        }
+        
+        function toggleAnimation() {
+          play = !play;
+        }
+        
+        function displayNextImage() {
+          if (!play)
+            return;
+            
+          if (img_idx >= image_nodes.length + 10) { // the + 10 adds a little pause after a cycle
+            img_idx = 0;
+          }
+          
+          if (img_idx < image_nodes.length) {
+            var old_idx = (img_idx == 0) ? image_nodes.length - 1 : img_idx - 1;
+          
+            // console.log("display: idx " + img_idx);
+            // console.log("hide: idx " + old_idx);
+          
+            image_nodes[img_idx].style.display = "block";
+            image_nodes[old_idx].style.display = "none";
+          }
+          
+          img_idx++;
+        }
+        
+        
 	    </script>
 	  </head>
 </head>
 <body>'.$html_result.'
 <div id="progress" style="width: 900px; height: 500px;"></div>
 <div id="speed"    style="width: 900px; height: 500px;"></div>
+
+<h2>Overview</h2>
+'.$overview_images.'
+
+<button onclick="toggleAnimation();">play</button>
 </body></html>';
 
 
 
 file_put_contents($folder.'/status.html', $full_html);
 
+shell_exec("cp $pdffile status/$pdffile");
 echo $result."\n";
 
 
