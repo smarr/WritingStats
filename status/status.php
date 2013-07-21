@@ -26,7 +26,7 @@ $texcount = shell_exec("$texcount_bin -merge $mainfile");
 
 // process data
 $matches = array();
-preg_match('/Output written on .* \(([0-9]+) pages, [0-9]+ bytes\)./', $latex_log, $matches);
+preg_match('/Output written on .* \(([0-9]+) page(s)?, [0-9]+ bytes\)./', $latex_log, $matches);
 
 $pages = (int)$matches[1];
 
