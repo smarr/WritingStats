@@ -2,9 +2,7 @@
 // This script generates an overview image of the PDF.
 // We use the number of pages given in the configuration as a constant for
 // the overview image's dimensions.
-$total_pages = $target_page_number_body * $overhead_pages;
-$total_pages = 9;
-$pages = 9;
+$total_pages = $target_page_number_body + $overhead_pages;
 
 /**
  * 1.  area = width * height
@@ -55,3 +53,4 @@ shell_exec("convert $pdffile tmp/$pdffile-%04d.png");
 $cmd = "montage -background \#ffffff -geometry +0+0 -tile {$width}x{$height} \"tmp/{$pdffile}-*.png\" status/overview-{$version_count}.png";
 shell_exec($cmd);
 shell_exec("rm -rf tmp");
+shell_exec("chmod a+r status/overview-*.png");
